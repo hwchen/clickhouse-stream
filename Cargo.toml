@@ -1,0 +1,10 @@
+[package]
+authors = ["Walther Chen <walther.chen@gmail.com>"]
+edition = "2018"
+name = "clickhouse-stream"
+version = "0.1.0"
+
+[dependencies]
+clickhouse-rs = "0.1.9"
+futures = "0.1.26"
+tokio = "0.1.18"
