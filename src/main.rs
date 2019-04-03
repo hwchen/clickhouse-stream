@@ -14,7 +14,7 @@ fn main() -> Result<(), Box<std::error::Error>> {
                 .stream_blocks()
                 .for_each(|block| {
                     if let Ok(b) = block {
-                        println!("{:?}\nblock counts: {} rows, {} bytes", b, b.row_count(), std::mem::size_of_val(&b));
+                        println!("{:?}\nblock counts: {} rows", b, b.row_count());
                     }
                     Ok(())
                 })
