@@ -5,6 +5,6 @@ name = "clickhouse-stream"
 version = "0.1.0"
 
 [dependencies]
-clickhouse-rs = "0.1.9"
+clickhouse-rs = { git = "https://github.com/hwchen/clickhouse-rs", branch = "feature/stream-blocks" }
 futures = "0.1.26"
 tokio = "0.1.18"
