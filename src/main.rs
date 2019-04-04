@@ -13,10 +13,9 @@ fn main() -> Result<(), Box<std::error::Error>> {
             c.query(query)
                 .stream_blocks()
                 .for_each(|block| {
-                    if let Ok(b) = block {
+                    block.map(|b| {
                         println!("{:?}\nblock counts: {} rows", b, b.row_count());
-                    }
-                    Ok(())
+                    })
                 })
         })
         .map_err(|err| eprintln!("database error: {}", err));
