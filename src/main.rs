@@ -13,11 +13,15 @@ fn main() -> Result<(), Box<std::error::Error>> {
             c.query(query)
                 .stream_blocks()
                 .for_each(|block| {
-                    block.map(|b| {
-                        println!("{:?}\nblock counts: {} rows", b, b.row_count());
-                    })
+                    println!("{:?}\nblock counts: {} rows",
+                        block,
+                        block.row_count(),
+                    );
+
+                    Ok(())
                 })
         })
+        .map(|_|())
         .map_err(|err| eprintln!("database error: {}", err));
 
     tokio::run(fut);
